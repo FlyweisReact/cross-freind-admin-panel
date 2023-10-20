@@ -1,0 +1,1 @@
+export const Baseurl = 'https://cross-friend.vercel.app/'
