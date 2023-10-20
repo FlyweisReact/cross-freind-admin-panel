@@ -46,7 +46,7 @@ const Login = () => {
         style={{background : "#042b26"}} 
       >
         <form className="shadow-2xl w-96 mx-3 sm:mx-0 sm:w-4/5 md:w-4/6 lg:w-4/5 xl:w-1/2 flex flex-col items-center bg-white p-5 md:py-10"   >
-          <img src={logo} alt='' className="logo" />
+          {/* <img src={logo} alt='' className="logo" /> */}
           <section className="py-2">
             {
               error ?
