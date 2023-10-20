@@ -53,9 +53,8 @@ const CreateProduct = () => {
   };
 
   const fd = new FormData();
-  Array.from(image).forEach((img) => {
-    fd.append("image", img);
-  });
+  fd.append("image", image);
+
   fd.append("name", name);
   fd.append("description", description);
   fd.append("category", category);
@@ -67,21 +66,18 @@ const CreateProduct = () => {
   fd.append("type", type);
   fd.append("ratings", ratings);
   fd.append("numOfReviews", numOfReviews);
-  fd.append("sizePrice[0][price]", 100);
-  fd.append("sizePrice[0][weight]", 50);
-  fd.append("sizePrice[0][stock]", 100);
-  // Array.from(multipleArr).forEach((i) => {
-  //   fd.append("price", i.price);
-  //   fd.append("weight", i.weight);
-  //   fd.append("stock", i.stock);
-  // });
+  Array.from(multipleArr).forEach((i) => {
+    fd.append("sizePrice", i.price);
+    fd.append("sizeWeight", i.weight);
+    fd.append("sizesStock", i.stock);
+  });
 
   const createProduct = async (e) => {
     e.preventDefault();
     setSubmitLoading(true);
     try {
       const res = await axios.post(
-        `${Baseurl}api/v1/admin/product/new`,
+        "https://cross-friend.vercel.app/api/v1/admin/product/new",
         fd,
         Auth
       );
@@ -136,11 +132,10 @@ const CreateProduct = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Images</Form.Label>
+            <Form.Label>Image</Form.Label>
             <Form.Control
               type="file"
-              multiple
-              onChange={(e) => setImage(e.target.files)}
+              onChange={(e) => setImage(e.target.files[0])}
             />
           </Form.Group>
           <Form.Group className="mb-3">
