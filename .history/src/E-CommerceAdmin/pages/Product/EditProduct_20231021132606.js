@@ -78,7 +78,7 @@ const EditProduct = () => {
     setSubmitLoading(true);
     try {
       const res = await axios.put(
-        `https://cross-friend.vercel.app/api/v1/admin/product/update/${product}`,
+        `https://cross-friend.vercel.app/api/v1/admin/product/update/65337b5b347a7bc4cb12f526`,
         fd,
         Auth
       );

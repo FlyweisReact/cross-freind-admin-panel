@@ -253,13 +253,10 @@ const EditProduct = () => {
 
           <Form.Group className="mb-3">
             <Form.Label>Type</Form.Label>
-
-            <Form.Select onChange={(e) => setType(e.target.value)}>
-              <option>Select Your Prefrence</option>
-              <option value="cake">Cake</option>
-              <option value="Bakery">Bakery</option>
-              <option value="Party">Party</option>
-            </Form.Select>
+            <Form.Control
+              type="text"
+              onChange={(e) => setType(e.target.value)}
+            />
           </Form.Group>
 
           <Form.Group className="mb-3">

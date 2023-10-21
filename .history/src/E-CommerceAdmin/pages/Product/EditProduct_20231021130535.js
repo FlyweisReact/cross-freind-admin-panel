@@ -78,7 +78,7 @@ const EditProduct = () => {
     setSubmitLoading(true);
     try {
       const res = await axios.put(
-        `https://cross-friend.vercel.app/api/v1/admin/product/update/${product}`,
+        `https://cross-friend.vercel.app/api/v1/admin/product/update/${id}`,
         fd,
         Auth
       );
@@ -107,7 +107,7 @@ const EditProduct = () => {
   return (
     <section>
       <section className="sectionCont">
-        <p className="headP">Dashboard / Update Exiting</p>
+        <p className="headP">Dashboard / Create New Product</p>
 
         <Form onSubmit={createProduct}>
           <Form.Group className="mb-3">
@@ -253,13 +253,10 @@ const EditProduct = () => {
 
           <Form.Group className="mb-3">
             <Form.Label>Type</Form.Label>
-
-            <Form.Select onChange={(e) => setType(e.target.value)}>
-              <option>Select Your Prefrence</option>
-              <option value="cake">Cake</option>
-              <option value="Bakery">Bakery</option>
-              <option value="Party">Party</option>
-            </Form.Select>
+            <Form.Control
+              type="text"
+              onChange={(e) => setType(e.target.value)}
+            />
           </Form.Group>
 
           <Form.Group className="mb-3">

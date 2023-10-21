@@ -1,14 +1,14 @@
 /** @format */
+
 import React, { useEffect, useState } from "react";
 import HOC from "../../layout/HOC";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Form, Button, FloatingLabel, Spinner } from "react-bootstrap";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Baseurl } from "../../../Baseurl";
 
-const EditProduct = () => {
-  const { product } = useParams();
+const CreateProduct = () => {
   const [submitLoading, setSubmitLoading] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -77,8 +77,8 @@ const EditProduct = () => {
     e.preventDefault();
     setSubmitLoading(true);
     try {
-      const res = await axios.put(
-        `https://cross-friend.vercel.app/api/v1/admin/product/update/${product}`,
+      const res = await axios.post(
+        "https://cross-friend.vercel.app/api/v1/admin/product/new",
         fd,
         Auth
       );
@@ -104,10 +104,11 @@ const EditProduct = () => {
   useEffect(() => {
     fetchCategory();
   }, []);
+
   return (
     <section>
       <section className="sectionCont">
-        <p className="headP">Dashboard / Update Exiting</p>
+        <p className="headP">Dashboard / Create New Product</p>
 
         <Form onSubmit={createProduct}>
           <Form.Group className="mb-3">
@@ -253,13 +254,13 @@ const EditProduct = () => {
 
           <Form.Group className="mb-3">
             <Form.Label>Type</Form.Label>
-
             <Form.Select onChange={(e) => setType(e.target.value)}>
               <option>Select Your Prefrence</option>
               <option value="cake">Cake</option>
               <option value="Bakery">Bakery</option>
               <option value="Party">Party</option>
             </Form.Select>
+          </Form.Group>
           </Form.Group>
 
           <Form.Group className="mb-3">
@@ -299,4 +300,4 @@ const EditProduct = () => {
   );
 };
 
-export default HOC(EditProduct);
+export default HOC(CreateProduct);
