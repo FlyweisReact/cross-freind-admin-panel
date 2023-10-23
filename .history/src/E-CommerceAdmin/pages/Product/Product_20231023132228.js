@@ -35,6 +35,7 @@ const Product = () => {
     fetchData();
   }, []);
 
+  console.log(data);
 
   const deleteHandler = async (id) => {
     try {

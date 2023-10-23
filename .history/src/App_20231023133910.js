@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Login from "./E-CommerceAdmin/forms/Login";
 import Dashboard from "./E-CommerceAdmin/pages/Dashboard";
 import ECategory from "./E-CommerceAdmin/pages/ECategory";
+import ESubCategory from "./E-CommerceAdmin/pages/ESubCategory";
 import Order from "./E-CommerceAdmin/pages/Orders/Order";
 import SingleOrder from "./E-CommerceAdmin/pages/Orders/SingleOrder";
 import Product from "./E-CommerceAdmin/pages/Product/Product";
@@ -19,7 +20,6 @@ import Terms from "./E-CommerceAdmin/pages/Terms/Terms";
 import Brand from "./E-CommerceAdmin/pages/Brand";
 import Acne from "./E-CommerceAdmin/pages/Acne/Acne";
 import Gallery from "./E-CommerceAdmin/pages/Gallery/Gallery";
-
 function App() {
   return (
     <>

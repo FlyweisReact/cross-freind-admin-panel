@@ -14,13 +14,6 @@ const Dashboard = () => {
   const [productCount, setProductCount] = useState("");
   const [orderCount, setOrderCount] = useState("");
 
-  const token = localStorage.getItem("AdminToken");
-  const Auth = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-
   const fetchAdmin = async () => {
     try {
       const { data } = await axios.get(
@@ -53,8 +46,10 @@ const Dashboard = () => {
 
   const fetchOrder = async () => {
     try {
-      const response = await axios.get(`${Baseurl}api/v1/admin/orders`, Auth);
-      setOrderCount(response?.data?.orders?.length);
+      const response = await axios.get(
+        "https://krish-vapes-backend.vercel.app/api/v1/admin/paginate/OrdersSearch"
+      );
+      setOrderCount(response.data.data.total);
     } catch (e) {
       console.log(e);
     }

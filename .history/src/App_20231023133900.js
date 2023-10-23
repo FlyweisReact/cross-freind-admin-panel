@@ -6,20 +6,46 @@ import "react-toastify/dist/ReactToastify.css";
 import Login from "./E-CommerceAdmin/forms/Login";
 import Dashboard from "./E-CommerceAdmin/pages/Dashboard";
 import ECategory from "./E-CommerceAdmin/pages/ECategory";
+import ESubCategory from "./E-CommerceAdmin/pages/ESubCategory";
 import Order from "./E-CommerceAdmin/pages/Orders/Order";
 import SingleOrder from "./E-CommerceAdmin/pages/Orders/SingleOrder";
 import Product from "./E-CommerceAdmin/pages/Product/Product";
 import CreateProduct from "./E-CommerceAdmin/pages/Product/CreateProduct";
 import SingleProduct from "./E-CommerceAdmin/pages/Product/SingleProduct";
 import EditProduct from "./E-CommerceAdmin/pages/Product/EditProduct";
+import AboutUs from "./E-CommerceAdmin/pages/AboutUs/AboutUs";
+import CreateAboutUs from "./E-CommerceAdmin/pages/AboutUs/create-about-us";
+import EditAboutUs from "./E-CommerceAdmin/pages/AboutUs/edit-about-us";
+import Query from "./E-CommerceAdmin/pages/Query/Query";
+import Contact from "./E-CommerceAdmin/pages/Contact/Contact";
 import User from "./E-CommerceAdmin/pages/User/User";
 import Blog from "./E-CommerceAdmin/pages/Blog/Blog";
+import Banner from "./E-CommerceAdmin/pages/Banner/Banner";
+import UserData from "./E-CommerceAdmin/pages/User/UserData";
+import Ad from "./E-CommerceAdmin/pages/BannerAd/Ad";
 import Privacy from "./E-CommerceAdmin/pages/PrivacyPolicy/Privacy";
 import Terms from "./E-CommerceAdmin/pages/Terms/Terms";
 import Brand from "./E-CommerceAdmin/pages/Brand";
+import Nutrition from "./E-CommerceAdmin/pages/Nutrition";
+import ProductType from "./E-CommerceAdmin/pages/ProductType";
+import SkinCondition from "./E-CommerceAdmin/pages/SkinCondition";
+import SkinType from "./E-CommerceAdmin/pages/SkinType";
+import Service from "./E-CommerceAdmin/pages/Service/Service";
+import SingleService from "./E-CommerceAdmin/pages/Service/SingleService";
+import CreateService from "./E-CommerceAdmin/pages/Service/CreateService";
+import Editservice from "./E-CommerceAdmin/pages/Service/Editservice";
+import Subscription from "./E-CommerceAdmin/pages/Subscription/Subscription";
+import CreateSubscription from "./E-CommerceAdmin/pages/Subscription/CreateSubscription";
+import EditSubscription from "./E-CommerceAdmin/pages/Subscription/EditSubscription";
+import Reviews from "./E-CommerceAdmin/pages/Reviews/Reviews";
+import Faq from "./E-CommerceAdmin/pages/FAQ/Faq";
+import Ingredeints from "./E-CommerceAdmin/pages/Ingredeints/Ingredeints";
+import GiftCard from "./E-CommerceAdmin/pages/GiftCard/GiftCard";
+import CreateGiftCard from "./E-CommerceAdmin/pages/GiftCard/CreateGiftCard";
 import Acne from "./E-CommerceAdmin/pages/Acne/Acne";
+import AcneSuggestion from "./E-CommerceAdmin/pages/AcneSuggestion/AcneSuggestion";
+import AddOnService from "./E-CommerceAdmin/pages/AddOnService/AddOnService";
 import Gallery from "./E-CommerceAdmin/pages/Gallery/Gallery";
-
 function App() {
   return (
     <>

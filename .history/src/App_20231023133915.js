@@ -19,7 +19,6 @@ import Terms from "./E-CommerceAdmin/pages/Terms/Terms";
 import Brand from "./E-CommerceAdmin/pages/Brand";
 import Acne from "./E-CommerceAdmin/pages/Acne/Acne";
 import Gallery from "./E-CommerceAdmin/pages/Gallery/Gallery";
-
 function App() {
   return (
     <>

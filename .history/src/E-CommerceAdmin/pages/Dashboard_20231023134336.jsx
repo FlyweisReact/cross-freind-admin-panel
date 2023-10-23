@@ -54,6 +54,7 @@ const Dashboard = () => {
   const fetchOrder = async () => {
     try {
       const response = await axios.get(`${Baseurl}api/v1/admin/orders`, Auth);
+      setData(response?.data?.orders);
       setOrderCount(response?.data?.orders?.length);
     } catch (e) {
       console.log(e);

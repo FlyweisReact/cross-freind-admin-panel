@@ -53,8 +53,10 @@ const Dashboard = () => {
 
   const fetchOrder = async () => {
     try {
-      const response = await axios.get(`${Baseurl}api/v1/admin/orders`, Auth);
-      setOrderCount(response?.data?.orders?.length);
+      const response = await axios.get(
+        "https://krish-vapes-backend.vercel.app/api/v1/admin/paginate/OrdersSearch"
+      );
+      setOrderCount(response.data.data.total);
     } catch (e) {
       console.log(e);
     }

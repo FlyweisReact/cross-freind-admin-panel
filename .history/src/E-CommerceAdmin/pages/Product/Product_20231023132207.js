@@ -24,7 +24,7 @@ const Product = () => {
   const fetchData = async () => {
     try {
       const { data } = await axios.get(`${Baseurl}api/v1/products`);
-      setData(data.products?.reverse());
+      setData(data.products);
       setTotal(data.products.length);
     } catch (e) {
       console.log(e);
@@ -35,6 +35,7 @@ const Product = () => {
     fetchData();
   }, []);
 
+  console.log(data);
 
   const deleteHandler = async (id) => {
     try {
@@ -84,7 +85,6 @@ const Product = () => {
                       <th>Image</th>
                       <th>Title</th>
                       <th>Deal of the Day</th>
-                      <th>Type</th>
                       <th> </th>
                     </tr>
                   </thead>

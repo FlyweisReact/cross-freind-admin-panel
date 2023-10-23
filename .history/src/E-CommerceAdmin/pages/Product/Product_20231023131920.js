@@ -24,7 +24,7 @@ const Product = () => {
   const fetchData = async () => {
     try {
       const { data } = await axios.get(`${Baseurl}api/v1/products`);
-      setData(data.products?.reverse());
+      setData(data.products);
       setTotal(data.products.length);
     } catch (e) {
       console.log(e);
@@ -34,7 +34,6 @@ const Product = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
 
   const deleteHandler = async (id) => {
     try {
@@ -83,8 +82,9 @@ const Product = () => {
                       <th>Sno.</th>
                       <th>Image</th>
                       <th>Title</th>
-                      <th>Deal of the Day</th>
-                      <th>Type</th>
+                      <th>MRP</th>
+                      <th>Selling Price</th>
+                      <th> Stock</th>
                       <th> </th>
                     </tr>
                   </thead>
@@ -94,13 +94,15 @@ const Product = () => {
                         <td> #{index + 1} </td>
                         <td style={{ cursor: "pointer" }}>
                           <div className="CarouselImages">
-                            <img src={i.images?.[0]} alt="" />
+                            <img src={i.imageUrls?.[0]} alt="" />
                           </div>
                         </td>
 
                         <td> {i.name} </td>
-                        <td> {i.isDealOfTheDay === true ? "Yes" : "No"} </td>
-                        <td style={{textTransform  : 'capitalize'}}> {i.type} </td>
+                        <td> {i.price} </td>
+                        <td>{i.discountPrice}</td>
+                   
+
                         <td>
                           <span className="flexCont">
                             <Link to={`/edit-product/${i._id}`}>

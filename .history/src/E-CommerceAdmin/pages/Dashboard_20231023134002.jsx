@@ -5,28 +5,20 @@ import { FiUser } from "react-icons/fi";
 import HOC from "../layout/HOC";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Baseurl } from "../../Baseurl";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [adminCount, setAdminCount] = useState([]);
   const [categoryCount, setCategoryCount] = useState("");
-  const [productCount, setProductCount] = useState("");
-  const [orderCount, setOrderCount] = useState("");
-
-  const token = localStorage.getItem("AdminToken");
-  const Auth = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  const [ productCount , setProductCount ] = useState("")
+  const [ orderCount , setOrderCount ] = useState("")
 
   const fetchAdmin = async () => {
     try {
       const { data } = await axios.get(
-        `${Baseurl}api/v1/catogory/getAllCategory`
+        "https://krish-vapes-backend.vercel.app/api/v1/Category/allCategory"
       );
-      setAdminCount(data.categories?.length);
+      setAdminCount(data.data.length);
     } catch (e) {
       console.log(e);
     }
@@ -34,9 +26,10 @@ const Dashboard = () => {
 
   const fetchCategory = async () => {
     try {
-      const { data } = await axios.get(`${Baseurl}api/v1/admin/users`, Auth);
-
-      setCategoryCount(data?.users?.length);
+      const { data } = await axios.get(
+        "https://krish-vapes-backend.vercel.app/api/v1/admin/getAllUser"
+      );
+      setCategoryCount(data.data.length);
     } catch (e) {
       console.log(e);
     }
@@ -44,8 +37,10 @@ const Dashboard = () => {
 
   const fetchProduct = async () => {
     try {
-      const { data } = await axios.get(`${Baseurl}api/v1/products`);
-      setProductCount(data.products.length);
+      const { data } = await axios.get(
+      `${Baseurl}api/v1/products`
+      );
+      setProductCount(data.data.length);
     } catch (e) {
       console.log(e);
     }
@@ -53,8 +48,10 @@ const Dashboard = () => {
 
   const fetchOrder = async () => {
     try {
-      const response = await axios.get(`${Baseurl}api/v1/admin/orders`, Auth);
-      setOrderCount(response?.data?.orders?.length);
+      const response = await axios.get(
+        "https://krish-vapes-backend.vercel.app/api/v1/admin/paginate/OrdersSearch"
+      );
+      setOrderCount(response.data.data.total);
     } catch (e) {
       console.log(e);
     }
@@ -63,8 +60,8 @@ const Dashboard = () => {
   useEffect(() => {
     fetchAdmin();
     fetchCategory();
-    fetchProduct();
-    fetchOrder();
+    fetchProduct()
+    fetchOrder()
   }, []);
 
   const card = [
@@ -80,9 +77,7 @@ const Dashboard = () => {
       progress: "bg-green-400",
       title: "All Product",
       number: productCount,
-      icon: (
-        <i className="fa-solid fa-cart-shopping text-2xl text-[#3c335d]"></i>
-      ),
+      icon: <i className="fa-solid fa-cart-shopping text-2xl text-[#3c335d]"></i>,
       bg: "#3c335d",
       link: "/Product",
     },
@@ -94,7 +89,7 @@ const Dashboard = () => {
       bg: "#64878e",
       link: "/user",
     },
-
+  
     {
       progress: "bg-green-400",
       title: "All orders",
