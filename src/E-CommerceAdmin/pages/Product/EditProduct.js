@@ -28,6 +28,8 @@ const EditProduct = () => {
   const [numOfReviews, setNumofReviews] = useState("");
   const [categoryArr, setCategoryArr] = useState([]);
   const [multipleArr, setMultipleArr] = useState([]);
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
   const multipleObj = {
     price,
@@ -65,6 +67,8 @@ const EditProduct = () => {
   fd.append("type", type);
   fd.append("ratings", ratings);
   fd.append("numOfReviews", numOfReviews);
+  fd.append("latitude", latitude);
+  fd.append("longitude", longitude);
   Array.from(image).forEach((i) => {
     fd.append("image", i);
   });
@@ -134,6 +138,8 @@ const EditProduct = () => {
       }
       setNumofReviews(data?.numOfReviews);
       setType(data?.type);
+      setLatitude(data?.location?.coordinates?.[0]);
+      setLongitude(data?.location?.coordinates?.[1]);
     }
   }, [data]);
 
@@ -173,6 +179,25 @@ const EditProduct = () => {
               onChange={(e) => setImage(e.target.files)}
             />
           </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label>Latitude</Form.Label>
+            <Form.Control
+              type="text"
+              value={latitude}
+              onChange={(e) => setLatitude(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label>Longitude</Form.Label>
+            <Form.Control
+              type="text"
+              value={longitude}
+              onChange={(e) => setLongitude(e.target.value)}
+            />
+          </Form.Group>
+
           <Form.Group className="mb-3">
             <Form.Label>Description</Form.Label>
             <FloatingLabel>

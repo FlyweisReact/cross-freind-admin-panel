@@ -86,6 +86,8 @@ const SingleProduct = () => {
             {ValueChecker(data?.discount, "Discount")}
             {ValueChecker(data?.numOfReviews, "Number of Reviews")}
             {ValueChecker(data?.minDiscount, "Min Discount")}
+            {ValueChecker(data?.location?.coordinates?.[0], "Latitude")}
+            {ValueChecker(data?.location?.coordinates?.[1], "Longitude")}
 
             {data?.sizePrice?.length > 0 && (
               <div className="Desc-Container">

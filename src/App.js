@@ -41,7 +41,6 @@ function App() {
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/brand" element={<Brand />} />
-
         <Route path="/Category" element={<ECategory />} />
         <Route path="/Product" element={<Product />} />
         <Route path="/product/:id" element={<SingleProduct />} />

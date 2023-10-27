@@ -35,7 +35,6 @@ const Product = () => {
     fetchData();
   }, []);
 
-
   const deleteHandler = async (id) => {
     try {
       const { data } = await axios.delete(
@@ -85,6 +84,8 @@ const Product = () => {
                       <th>Title</th>
                       <th>Deal of the Day</th>
                       <th>Type</th>
+                      <th>Laitude</th>
+                      <th>Longitude</th>
                       <th> </th>
                     </tr>
                   </thead>
@@ -100,7 +101,12 @@ const Product = () => {
 
                         <td> {i.name} </td>
                         <td> {i.isDealOfTheDay === true ? "Yes" : "No"} </td>
-                        <td style={{textTransform  : 'capitalize'}}> {i.type} </td>
+                        <td style={{ textTransform: "capitalize" }}>
+                          {" "}
+                          {i.type}{" "}
+                        </td>
+                        <td> {i.location?.coordinates?.[0]} </td>
+                        <td> {i.location?.coordinates?.[1]} </td>
                         <td>
                           <span className="flexCont">
                             <Link to={`/edit-product/${i._id}`}>

@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { Form, Button, FloatingLabel, Spinner } from "react-bootstrap";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { Baseurl } from "../../../Baseurl";
 
 const CreateProduct = () => {
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -27,6 +26,8 @@ const CreateProduct = () => {
   const [numOfReviews, setNumofReviews] = useState("");
   const [categoryArr, setCategoryArr] = useState([]);
   const [multipleArr, setMultipleArr] = useState([]);
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
   const multipleObj = {
     price,
@@ -64,6 +65,8 @@ const CreateProduct = () => {
   fd.append("type", type);
   fd.append("ratings", ratings);
   fd.append("numOfReviews", numOfReviews);
+  fd.append("latitude", latitude);
+  fd.append("longitude", longitude);
   Array.from(image).forEach((i) => {
     fd.append("image", i);
   });
@@ -159,6 +162,21 @@ const CreateProduct = () => {
               onChange={(e) => setDiscountInPercentage(e.target.value)}
             />
           </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Latitude</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => setLatitude(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label>Longitude</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => setLongitude(e.target.value)}
+            />
+          </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Label>Min. Discount </Form.Label>
@@ -230,10 +248,11 @@ const CreateProduct = () => {
 
           <Form.Group className="mb-3">
             <Form.Label>Per</Form.Label>
-            <Form.Control
-              type="text"
-              onChange={(e) => setPer(e.target.value)}
-            />
+            <Form.Select onChange={(e) => setPer(e.target.value)}>
+              <option>Select Your Prefrence</option>
+              <option value="g">gram</option>
+              <option value="kg">KG</option>
+            </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Discount Price</Form.Label>
