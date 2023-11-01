@@ -48,6 +48,7 @@ const User = () => {
       toast.error(msg);
     }
   };
+  
 
   return (
     <>
@@ -103,8 +104,7 @@ const User = () => {
                         <td> {i.middle} </td>
                         <td> {i.last} </td>
                         <td> {i.email} </td>
-                        <td> {i.phone} </td>
-
+                        <td> {i.mobileNumber} </td>
                         <td>
                           <span className="flexCont">
                             <i
