@@ -100,7 +100,7 @@ const Gallery = () => {
   }
 
   const handleDelete = async (ide) => {
-    const url = `https://shahina-backend.vercel.app/api/v1/Gallary/${ide}`;
+    const url = `${Baseurl}api/v1/banner/delete/${ide}`;
     try {
       const { data } = await axios.delete(url, Auth);
       toast.success(data.message);
